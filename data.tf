@@ -24,10 +24,6 @@ data "aws_ami" "ubuntu" {
   
 }
 
-data "aws_key_pair" "jenkins_keypair" {
-  key_name = "isiaho_aws.pub"  
-}
-
 data "aws_caller_identity" "current" {}
 
 data "aws_ami" "amazon_linux_2" {
