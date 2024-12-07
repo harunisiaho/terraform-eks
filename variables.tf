@@ -46,10 +46,6 @@ variable "alb_tg_name" {
 
 }
 
-variable "alb_logs_bucket_name" {
-  type = string
-  
-}
 
 variable "elb_account_id" {
   type = string
