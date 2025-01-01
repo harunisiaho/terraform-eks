@@ -75,3 +75,10 @@ module "eks_cluster" {
     Terraform   = "true"
   }
 }
+
+resource "aws_eks_access_entry" "allow" {
+  cluster_name      = module.eks_cluster.cluster_name
+  principal_arn     = "arn:aws:iam::${var.aws_account_id}:user/harun"
+  kubernetes_groups = ["system:masters"]
+  type              = "STANDARD"
+}
