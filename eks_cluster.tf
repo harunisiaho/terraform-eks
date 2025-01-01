@@ -44,18 +44,18 @@ module "eks_cluster" {
 
   access_entries = {
     # One access entry with a policy associated
-    # access_entry_01 = {
-    #   kubernetes_groups = []
-    #   principal_arn     = "arn:aws:iam::${var.aws_account_id}:role/AmazonSSMRoleForInstancesQuickSetup"
-    #   policy_associations = {
-    #     admin_policy = {
-    #       policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
-    #       access_scope = {
-    #         type       = "cluster"
-    #       }
-    #     }
-    #   }
-    # },
+    access_entry_01 = {
+      kubernetes_groups = []
+      principal_arn     = "arn:aws:iam::${var.aws_account_id}:role/AmazonSSMRoleForInstancesQuickSetup"
+      policy_associations = {
+        admin_policy = {
+          policy_arn = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy"
+          access_scope = {
+            type       = "cluster"
+          }
+        }
+      }
+    },
     access_entry_02 = {
       kubernetes_groups = []
       principal_arn     = "arn:aws:iam::${var.aws_account_id}:role/admin"
