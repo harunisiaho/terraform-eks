@@ -11,6 +11,7 @@ module "eks_cluster" {
     coredns                = {}
     kube-proxy             = {}
     vpc-cni                = {}
+    eks-pod-identity-agent = {}
   }
 
   vpc_id                   = module.eks_vpc.vpc_id
