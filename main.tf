@@ -68,6 +68,6 @@ resource "aws_iam_role" "pod_identity_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "attach_pod_identity_policy" {
-    role = aws_iam_role.pod_execution_role.name
+    role = aws_iam_role.pod_identity_role.name
     policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
