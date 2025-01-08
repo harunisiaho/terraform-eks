@@ -46,3 +46,28 @@ resource "aws_eks_fargate_profile" "fargate_profile" {
         namespace = "fargate"
     }
 }
+
+
+resource "aws_iam_role" "pod_identity_role" {
+    name = "PodIdentityRole"
+    assume_role_policy = jsonencode({
+        Version = "2012-10-17",
+        Statement = [
+            {
+                Effect = "Allow",
+                Principal = {
+                    Service = "pods.eks.amazonaws.com"
+                },
+                "Action": [
+                    "sts:AssumeRole",
+                    "sts:TagSession"
+            ]
+            }
+        ]
+    })
+}
+
+resource "aws_iam_role_policy_attachment" "attach_pod_identity_policy" {
+    role = aws_iam_role.pod_execution_role.name
+    policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
+}
