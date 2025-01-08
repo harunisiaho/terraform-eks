@@ -32,6 +32,7 @@ module "eks_cluster" {
           ebs_csi_policy = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
           lbc_policy = "arn:aws:iam::${var.aws_account_id}:policy/AWSLoadBalancerControllerIAMPolicy"
           external_dns_policy = "arn:aws:iam::${var.aws_account_id}:policy/AllowExternalDNSUpdates"
+          amazon_eks_workernode_policy= "arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy"
         }
    
       
