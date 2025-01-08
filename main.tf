@@ -71,3 +71,10 @@ resource "aws_iam_role_policy_attachment" "attach_pod_identity_policy" {
     role = aws_iam_role.pod_identity_role.name
     policy_arn = "arn:aws:iam::aws:policy/PowerUserAccess"
 }
+
+resource "aws_eks_pod_identity_association" "pod_identity_association" {
+  cluster_name    = module.eks_cluster.cluster_name
+  namespace       = "pod-identity"
+  service_account = "eks-pod-identity"
+  role_arn        = aws_iam_role.pod_identity_role.arn
+}
