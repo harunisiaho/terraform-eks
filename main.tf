@@ -77,4 +77,7 @@ resource "aws_eks_pod_identity_association" "pod_identity_association" {
   namespace       = "pod-identity"
   service_account = "eks-pod-identity"
   role_arn        = aws_iam_role.pod_identity_role.arn
+  tags = {
+    "Name" = "EKS-Pod_Identity"
+  }
 }
